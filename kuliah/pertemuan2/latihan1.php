@@ -12,7 +12,7 @@
   //$row = mysqli_fetch_array($result); //array keduanya
   $rows = [];
   while ($row = mysqli_fetch_assoc($result)) {
-    $rows = $row;
+    $rows[] = $row;
   }
 
   //tampung ke variabel mahasiswa
@@ -43,9 +43,10 @@
         <th>Aksi</th>
       </tr>
 
-      <?php foreach ($mahasiswa as $m) : ?>
+      <?php $i = 1;
+      foreach ($mahasiswa as $m) : ?>
         <tr>
-          <td>1</td>
+          <td><?= $i++; ?></td>
           <td><?= $m['nim']; ?></td>
           <td><?= $m['nama']; ?></td>
           <td><?= $m['email']; ?></td>
