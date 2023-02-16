@@ -1,10 +1,4 @@
 <?php
-session_start();
-
-if (isset($_SESSION['login'])) {
-  header("Location: index.php");
-  exit;
-}
 
 
 require 'functions.php';
@@ -13,6 +7,9 @@ require 'functions.php';
 if (isset($_POST['login'])) {
   $login = login($_POST);
 }
+
+
+
 
 ?>
 
@@ -34,18 +31,18 @@ if (isset($_POST['login'])) {
     <p style="color:red; font-style: italic;"><?= $login['pesan']; ?></p>
   <?php endif; ?>
 
-  <form action="" method="POST">
+  <form action="" method="post">
     <ul>
       <li>
         <label>
           username :
-          <input type="text" name="username" autofocus autocomplete="off" required>
+          <input type="text" name="username" required>
         </label>
       </li>
       <li>
         <label>
           password :
-          <input type="password" name="password" autofocus autocomplete="off" required>
+          <input type="text" name="password" required>
         </label>
       </li>
       <li>
@@ -53,10 +50,7 @@ if (isset($_POST['login'])) {
         <label for="remember">Remember me</label>
       </li>
       <li>
-        <button type="submit" name="login">Login </button>
-      </li>
-      <li>
-        <a href="registrasi.php">Registrasi</a>
+        <button type="login" name="login">login </button>
       </li>
 
 

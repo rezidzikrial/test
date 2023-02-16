@@ -98,4 +98,26 @@
     return query($query);
   }
 
-  ?>
+  function Login($data)
+  {
+    $conn = Koneksi();
+
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+
+    if ($username == 'admin' && $password == '123') {
+
+      //set session
+      $_SESSION['login'] = true;
+
+      header("location: index.php");
+      exit;
+    } else {
+      return [
+        'error' => true,
+        'pesan' => 'Username / Password Salah!'
+      ];
+    }
+  }
+
+  ?> ?>

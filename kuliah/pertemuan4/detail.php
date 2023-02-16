@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
+
 require 'functions.php';
 
 //ambil id dari URL
@@ -29,7 +36,7 @@ $m = query("SELECT * FROM mahasiswa WHERE id = $id");
       <a href="ubah.php?id=<?= $m['id']; ?>"> ubah </a> | <a href="hapus.php?id=<?= $m['id'];
                                                                                 ?>" onclick="return confirm('anda yakin ingin menghapus?');"> hapus </a>
       <br>
-      <a href="latihan3.php"> Kembali </a>
+      <a href="index.php"> Kembali </a>
     </li>
 
   </ul>

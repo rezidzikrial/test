@@ -98,14 +98,17 @@
     return query($query);
   }
 
-  function Login($data)
+  function login($data)
   {
     $conn = Koneksi();
 
     $username = htmlspecialchars($data['username']);
     $password = htmlspecialchars($data['password']);
 
-    if ($username == 'admin' && $password == '123') {
+    if (query("SELECT * FROM user WHERE username = '$username' && password = '$password'")) {
+      //set session
+      $_SESSION['login'] = true;
+
       header("Location: index.php");
       exit;
     } else {
