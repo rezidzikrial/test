@@ -1,15 +1,13 @@
 <?php
 session_start();
+require 'functions.php';
 
 if (isset($_SESSION['login'])) {
-  header("Location: index.php");
+  header('Location: index.php');
   exit;
 }
 
-
-require 'functions.php';
-
-//ketika tombol login ditekan
+//jika tombol login ditekan
 if (isset($_POST['login'])) {
   $login = login($_POST);
 }
@@ -33,7 +31,6 @@ if (isset($_POST['login'])) {
   <?php if (isset($login['error'])) : ?>
     <p style="color:red; font-style: italic;"><?= $login['pesan']; ?></p>
   <?php endif; ?>
-
   <form action="" method="POST">
     <ul>
       <li>

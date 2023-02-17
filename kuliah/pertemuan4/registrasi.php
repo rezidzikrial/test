@@ -1,3 +1,18 @@
+<?php
+require 'functions.php';
+
+if (isset($_POST['registrasi'])) {
+  if (registrasi($_POST) > 0) {
+    echo "<script>
+          alert('user baru berhasil ditambahkan, silahkan login!');
+          document.location.href = 'login.php';
+          </script>";
+  } else {
+    echo 'user gagal ditambahkan!';
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,17 +38,17 @@
       <li>
         <label>
           Password :
-          <input type="text" name="password" autofocus autocomplete="off" required>
+          <input type="password" name="password1" autofocus autocomplete="off" required>
         </label>
       </li>
       <li>
         <label>
-          Password :
-          <input type="text" name="email" autofocus autocomplete="off" required>
+          Konfirmasi Password :
+          <input type="password" name="password2" autofocus autocomplete="off" required>
         </label>
       </li>
       <li>
-        <button type="submit" name="register">Registrasi </button>
+        <button type="submit" name="registrasi">Registrasi </button>
       </li>
 
 
