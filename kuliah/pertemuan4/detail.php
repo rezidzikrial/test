@@ -38,10 +38,7 @@ $m = query("SELECT * FROM mahasiswa WHERE id = $id");
       <br>
       <a href="index.php"> Kembali </a>
     </li>
-
   </ul>
-
-
 
 </body>
 
